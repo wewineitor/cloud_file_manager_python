@@ -1,4 +1,3 @@
-from importlib.metadata import files
 from fastapi import APIRouter, status, HTTPException, UploadFile, File, Form
 import os
 import math
@@ -23,7 +22,7 @@ def get_path(path:str) -> str:
         path = CLOUD_PATH
     else :
         path_formated = path.replace('-', '/')
-        path = f'{CLOUD_PATH}/{path_formated}'
+        path = f'{CLOUD_PATH}{path_formated}'
     return path
 
 @router.post('/uploadFile/', status_code = status.HTTP_200_OK)
